@@ -7,15 +7,36 @@ textarea {
 }
 
 iframe {
-    height: 250px;
+    width: 100%;
+    height: 300px;
+}
+
+input {
+    width: 95%;
+    padding: 2%;
+    margin-bottom: 10px;
+}
+
+.tab {
+    padding: 10px;
 }
 
 .wrapper {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .comparator-wrapper {
     display: flex;
-    width: auto;
+    justify-content: space-between;
+}
+
+.speech {
+    width: 39%;
+    margin: 1%;
+}
+
+.comparator {
+    width: 59%;
+    margin: 1%;
 }
