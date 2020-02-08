@@ -90,6 +90,10 @@ input {
     justify-content: flex-end;
 }
 
+.comparator-buttons.right {
+    justify-content: flex-start;
+}
+
 .comparator-buttons.left {
     justify-content: flex-start !important;
     margin-right: 10px;
@@ -111,6 +115,8 @@ input {
     margin-bottom: 10px;
 }
 
+
+
 .comparator-button:hover {
     background-color: rgba(125, 223, 105, 0.993);
 }
@@ -119,3 +125,64 @@ input {
     background-color: rgba(103, 180, 88, 0.863);
 }
 
+.select-textarea {
+    width: 40%;
+    text-align: center;
+}
+
+.select-textarea>textarea,select {
+    width: 100%;
+}
+select {
+    display: inline-block;
+    width: 70%;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.compare-button {
+    display: block;
+    margin: 50px 10px 0 10px;
+    width: 15%;
+    outline: none;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    align-self: center;
+    padding: 10px;
+    background-color: rgb(113, 167, 238);
+    border-radius: 3px;
+    color: #fff;
+}
+
+.save-button {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 15%;
+    outline: none;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    align-self: flex-start;
+    padding: 10px;
+    background-color: rgb(252, 147, 86);
+    border-radius: 3px;
+    color: #fff;
+}
+.save-button.right {
+    left: 0;
+}
+
+.save-button:hover {
+    background-color: rgb(255, 162, 108);
+}
+
+.save-button:hover:active {
+    background-color: rgb(250, 135, 68);
+}
+
+.comparator {
+    position: relative;
+}
