@@ -9,138 +9,144 @@
   <link rel="stylesheet" href="main.css">
 </head>
 
-<body onload="hideTabs()">
-  <div class="tab">
-    <button class="tab-link" onclick="changeTab(event, 'speech-to-text')">Speech To Text</button>
-    <button class="tab-link" onclick="changeTab(event, 'text-to-speech')">Text To Speech</button>
-  </div>
-
-  <section id="speech-to-text" class="tab-content">
-
-    <div class="wrapper">
-      <div class="speech">
-        <input type="text" placeholder="HTTP://..." class="speech-input" id="speech-to-text-input" key>
-        <div class="speech-source">
-          <iframe id="speech-to-text-iframe" src="" frameborder="0"></iframe>
-        </div>
-      </div>
-
-      <div class="comparator">
-        <button class="comparator-button">Recognize</button>
-        <button class="comparator-button">Load Recognition</button>
-
-        <div class="comparator-wrapper">
-          <select name="API">
-            <option>Nothing</option>
-            <option>CMU Sphinx</option>
-            <option>Google Speech Recognition</option>
-            <option selected="selected">Google Cloud Speech API</option>
-            <option>Microsoft Bing Voice Recognition</option>
-            <option>Houndify API</option>
-            <option>IBM Speech to Text</option>
-            <option>Snowboy Hotword Detection</option>
-          </select>
-
-          <textarea name="comparator-output" class="comparator-output" cols="30" rows="10">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                Odio dicta reprehenderit, enim optio magnam maxime facilis minus! 
-                Aliquid aliquam maxime voluptates molestiae omnis deserunt, repellendus saepe eveniet impedit. 
-                Ratione, vitae!
-              </textarea>
-
-          <button type="button">Compare</button>
-
-          <select name="API">
-            <option>Nothing</option>
-            <option>CMU Sphinx</option>
-            <option>Google Speech Recognition</option>
-            <option>Google Cloud Speech API</option>
-            <option>Microsoft Bing Voice Recognition</option>
-            <option>Houndify API</option>
-            <option selected="selected">IBM Speech to Text</option>
-            <option>Snowboy Hotword Detection</option>
-          </select>
-
-          <textarea name="comparator-output" class="comparator-output" cols="30" rows="10">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                Odio dicta reprehenderit, enim optio magnam maxime facilis minus! 
-                Aliquid aliquam maxime voluptates molestiae omnis deserunt, repellendus saepe eveniet impedit. 
-                Ratione, vitae!
-              </textarea>
-        </div>
-
-        <button type="button">Save</button>
-
-      </div>
+<body">
+  <main>
+    <div class="tab">
+      <button id="speech-to-text-link" class="tab-link active" onclick="changeTab(event, 'speech-to-text')">Speech To Text</button>
+      <button id="text-to-speech-link" class="tab-link" onclick="changeTab(event, 'text-to-speech')">Text To Speech</button>
     </div>
-
-  </section>
-
-  <section id="text-to-speech" class="tab-content">
-
-    <div class="wrapper">
-
-      <div class="comparator">
-        <button class="comparator-button">Recognize</button>
-        <button class="comparator-button">Load Recognition</button>
-
-        <div class="comparator-wrapper">
-
-          <select name="API">
-            <option>Nothing</option>
-            <option>CMU Sphinx</option>
-            <option>Google Speech Recognition</option>
-            <option selected="selected">Google Cloud Speech API</option>
-            <option>Microsoft Bing Voice Recognition</option>
-            <option>Houndify API</option>
-            <option>IBM Speech to Text</option>
-            <option>Snowboy Hotword Detection</option>
-          </select>
-
-          <textarea name="comparator-output" class="comparator-output" cols="30" rows="10">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-            Odio dicta reprehenderit, enim optio magnam maxime facilis minus! 
-            Aliquid aliquam maxime voluptates molestiae omnis deserunt, repellendus saepe eveniet impedit. 
-            Ratione, vitae!
-          </textarea>
-
-          <button type="button">Compare</button>
-
-          <select name="API">
-            <option>Nothing</option>
-            <option>CMU Sphinx</option>
-            <option>Google Speech Recognition</option>
-            <option>Google Cloud Speech API</option>
-            <option>Microsoft Bing Voice Recognition</option>
-            <option>Houndify API</option>
-            <option selected="selected">IBM Speech to Text</option>
-            <option>Snowboy Hotword Detection</option>
-          </select>
-
-          <textarea name="comparator-output" class="comparator-output" cols="30" rows="10">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-            Odio dicta reprehenderit, enim optio magnam maxime facilis minus! 
-            Aliquid aliquam maxime voluptates molestiae omnis deserunt, repellendus saepe eveniet impedit. 
-            Ratione, vitae!
-          </textarea>
+  
+    <section id="speech-to-text" class="tab-content">
+  
+      <div class="wrapper">
+        <div class="speech">
+          <input type="text" placeholder="HTTP://..." class="speech-input" id="speech-to-text-input" key>
+          <div class="speech-source">
+            <iframe id="speech-to-text-iframe" src="https://www.youtube.com/embed/omDPaS_HaBM" frameborder="0"></iframe>
+          </div>
         </div>
-
-        <button type="button">Save</button>
-
-      </div>
-
-      <div class="speech">
-        <input type="text" placeholder="HTTP://..." class="speech-input" id="text-to-speech-input">
-        <div class="speech-source">
-          <iframe id="text-to-speech-iframe" src="" frameborder="0"></iframe>
+  
+        <div class="comparator">
+          <div class="comparator-buttons">
+            <button class="comparator-button">Recognize</button>
+            <button class="comparator-button">Load Recognition</button>
+          </div>
+  
+          <div class="comparator-wrapper">
+            <select name="API">
+              <option>Nothing</option>
+              <option>CMU Sphinx</option>
+              <option>Google Speech Recognition</option>
+              <option selected="selected">Google Cloud Speech API</option>
+              <option>Microsoft Bing Voice Recognition</option>
+              <option>Houndify API</option>
+              <option>IBM Speech to Text</option>
+              <option>Snowboy Hotword Detection</option>
+            </select>
+  
+            <textarea name="comparator-output" class="comparator-output" cols="30" rows="10">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                  Odio dicta reprehenderit, enim optio magnam maxime facilis minus! 
+                  Aliquid aliquam maxime voluptates molestiae omnis deserunt, repellendus saepe eveniet impedit. 
+                  Ratione, vitae!
+                </textarea>
+  
+            <button type="button">Compare</button>
+  
+            <select name="API">
+              <option>Nothing</option>
+              <option>CMU Sphinx</option>
+              <option>Google Speech Recognition</option>
+              <option>Google Cloud Speech API</option>
+              <option>Microsoft Bing Voice Recognition</option>
+              <option>Houndify API</option>
+              <option selected="selected">IBM Speech to Text</option>
+              <option>Snowboy Hotword Detection</option>
+            </select>
+  
+            <textarea name="comparator-output" class="comparator-output" cols="30" rows="10">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                  Odio dicta reprehenderit, enim optio magnam maxime facilis minus! 
+                  Aliquid aliquam maxime voluptates molestiae omnis deserunt, repellendus saepe eveniet impedit. 
+                  Ratione, vitae!
+                </textarea>
+          </div>
+  
+          <button type="button">Save</button>
+  
         </div>
       </div>
+  
+    </section>
+  
+    <section id="text-to-speech" class="tab-content">
+  
+      <div class="wrapper">
+  
+        <div class="comparator">
+          <div class="comparator-buttons left">
+            <button class="comparator-button">Recognize</button>
+            <button class="comparator-button">Load Recognition</button>
+          </div>
+  
+          <div class="comparator-wrapper">
+  
+            <select name="API">
+              <option>Nothing</option>
+              <option>CMU Sphinx</option>
+              <option>Google Speech Recognition</option>
+              <option selected="selected">Google Cloud Speech API</option>
+              <option>Microsoft Bing Voice Recognition</option>
+              <option>Houndify API</option>
+              <option>IBM Speech to Text</option>
+              <option>Snowboy Hotword Detection</option>
+            </select>
+  
+            <textarea name="comparator-output" class="comparator-output" cols="30" rows="10">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+              Odio dicta reprehenderit, enim optio magnam maxime facilis minus! 
+              Aliquid aliquam maxime voluptates molestiae omnis deserunt, repellendus saepe eveniet impedit. 
+              Ratione, vitae!
+            </textarea>
+  
+            <button type="button">Compare</button>
+  
+            <select name="API">
+              <option>Nothing</option>
+              <option>CMU Sphinx</option>
+              <option>Google Speech Recognition</option>
+              <option>Google Cloud Speech API</option>
+              <option>Microsoft Bing Voice Recognition</option>
+              <option>Houndify API</option>
+              <option selected="selected">IBM Speech to Text</option>
+              <option>Snowboy Hotword Detection</option>
+            </select>
+  
+            <textarea name="comparator-output" class="comparator-output" cols="30" rows="10">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+              Odio dicta reprehenderit, enim optio magnam maxime facilis minus! 
+              Aliquid aliquam maxime voluptates molestiae omnis deserunt, repellendus saepe eveniet impedit. 
+              Ratione, vitae!
+            </textarea>
+          </div>
+  
+          <button type="button">Save</button>
+  
+        </div>
+  
+        <div class="speech">
+          <input type="text" placeholder="HTTP://..." class="speech-input" id="text-to-speech-input">
+          <div class="speech-source">
+            <iframe id="text-to-speech-iframe" src="https://www.youtube.com/embed/omDPaS_HaBM" frameborder="0"></iframe>
+          </div>
+        </div>
+  
+  
+      </div>
+    </section>
+  </main>
 
-
-    </div>
-  </section>
-
-</body>
-<script src="main.js"></script>
+  </body>
+  <script src="main.js"></script>
 
 </html>
