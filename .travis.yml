@@ -1,13 +1,26 @@
 language: node_js
+
 node_js:
-  - "9"
+  - "12"
+
 dist: trusty
+
 sudo: required
+
 branches:
   only:
   - master
+
 before_script:
   - npm install -g @angular/cli
+
+addons:
+  sonarcloud:
+    organization: "speech4j"
+    token:
+      secure: "361b72864ded6c5ab76dcd2c14b160ab41797dfd"
+      
 script:
 - ng lint
 - ng build --prod --base-href https://github.com/speech4j/speech-to-text-comparator-ui
+- sonar-scanner
