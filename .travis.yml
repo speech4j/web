@@ -19,9 +19,10 @@ addons:
     organization: "speech4j"
     token:
       secure: "361b72864ded6c5ab76dcd2c14b160ab41797dfd"
-      
+
 script:
 - ng lint
+- npm run test-headless
 - ng build --prod --base-href https://github.com/speech4j/speech-to-text-comparator-ui
 - sonar-scanner
 
