@@ -24,4 +24,3 @@ script:
 - ng lint
 - ng build --prod --base-href https://github.com/speech4j/speech-to-text-comparator-ui
 - sonar-scanner
-
