@@ -1,0 +1,42 @@
+language: node_js
+node_js:
+  - "12"
+dist: trusty
+sudo: required
+
+cache:
+  directories:
+    - node_modules
+
+addons:
+  chrome: stable
+  sonarcloud:
+    organization: "speech4j"
+
+branches:
+  only:
+    - master
+
+before_script: 
+  - npm install -g --silent @angular/cli@8.3.19
+
+script:
+  - ng lint
+  - npm run test-headless
+  - npm run e2e
+  - sonar-scanner -Dsonar.verbose=true -X
+  - npm run buildgp
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: "$GITHUB_TOKEN"
+  keep_history: true
+  local_dir: dist/web
+  on:
+    branch: master
+
+notifications:
+  email:
+    on_failure: change
+    on_success: change
