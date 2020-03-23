@@ -1,3 +1,13 @@
-<a routerLink="/stt">Speech To Text</a>
-<a routerLink="/tts">Text To Speech</a>
+<div class="tab">
+    <button routerLink="/stt"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+            id="speech-to-text-link" 
+            class="tab-link">Speech To
+      Text</button>
+    <button routerLink="/tts"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+            id="text-to-speech-link" 
+            class="tab-link">Text To
+      Speech</button>
+  </div>
 <router-outlet></router-outlet>
