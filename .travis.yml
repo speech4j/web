@@ -3,6 +3,8 @@ node_js:
   - "12"
 dist: trusty
 sudo: required
+services:
+  - docker
 
 cache:
   directories:
@@ -17,6 +19,9 @@ branches:
   only:
     - master
 
+before_install:
+  - docker build -t andriimykytyn/web .
+
 before_script: 
   - npm install -g --silent @angular/cli@8.3.19
 
@@ -24,7 +29,7 @@ script:
   - ng lint
   - npm run test-headless
   - sonar-scanner -Dsonar.verbose=true -X
-  - npm run buildgp
+  - npm run build
 
 deploy:
   provider: pages

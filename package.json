@@ -4,14 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "lint": "ng lint",
-    "buildgp": "ng build --prod --base-href https://speech4j.github.io/web/",
     "e2e": "ng e2e",
-    "test-headless": "ng test --watch=false --browsers=ChromeHeadless --code-coverage",
-    "start:ci": "http-server ./dist/web -a localhost -p 4200 -c-1"
+    "test-headless": "ng test --watch=false --browsers=ChromeHeadless --code-coverage"
   },
-  "private": true,
+  "private": "true",
   "dependencies": {
     "@angular/animations": "~9.0.2",
     "@angular/common": "~9.0.2",
