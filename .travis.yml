@@ -31,6 +31,6 @@ script:
   - npm run build
 
 after_success:
-  - docker build -t speech4j/web-prod .
+  - docker build -t speech4j/web .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push speech4j/web-prod
+  - docker push speech4j/web
