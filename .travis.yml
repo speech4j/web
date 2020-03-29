@@ -23,7 +23,7 @@ before_install:
   - docker build -t andriimykytyn/web .
 
 before_script: 
-  - npm install -g --silent @angular/cli@8.3.19
+  - npm install -g --silent @angular/cli@9.1.0
 
 script:
   - ng lint
