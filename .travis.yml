@@ -20,27 +20,17 @@ branches:
     - master
 
 before_install:
-  - docker build -t andriimykytyn/web .
+  - docker build -t speech4j/web-test -f Dockerfile.dev .
 
 before_script: 
   - npm install -g --silent @angular/cli@9.1.0
 
 script:
-  - ng lint
-  - npm run test-headless
+  - docker run -e CI=true speech4j/web-test -v "$(pwd)"/coverage:/web/coverage/web 55e79f84f759 npm run test-headless
   - sonar-scanner -Dsonar.verbose=true -X
   - npm run build
 
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: "$GITHUB_TOKEN"
-  keep_history: true
-  local_dir: dist/web
-  on:
-    branch: master
-
-notifications:
-  email:
-    on_failure: change
-    on_success: change
+after_success:
+  - docker build -t speech4j/web-prod .
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push speech4j/web-prod

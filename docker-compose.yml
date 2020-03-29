@@ -1,9 +1,24 @@
 version: '3'
 services:
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     ports:
-      - "4200:80"
+      - "4200:4200"  
+    volumes:
+      - /web/node_modules
+      - .:/web
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /web/node_modules
+      - .:/web
+    command: ["npm","run","test-headless"]
+  web-prod:
+    build: .
     volumes:
       - /web/node_modules
       - .:/web
