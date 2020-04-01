@@ -34,3 +34,16 @@ after_success:
   - docker build -t speech4j/web .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push speech4j/web
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "speech4jweb"
+  env: "Speech4jweb-env"
+  bucket_name: "elasticbeanstalk-us-east-2-547860292933"
+  bucket_path: "speech4jweb"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
