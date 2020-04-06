@@ -1,8 +1,17 @@
 {
     "AWSEBDockerrunVersion": "1",
-    "Ports": [
+    "containerDefinitions": [
       {
-        "ContainerPort": "80"
-      }
-    ]
+        "name": "nginx",
+        "image": "speech4j/web",
+        "essential": true,
+        "portMappings": [
+            {
+                "hostPort": 80,
+                "containerPort": 80
+            }
+        ],
+        "memory": 128
+    }
+  ]
 }
