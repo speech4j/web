@@ -30,11 +30,6 @@ script:
   - sonar-scanner -Dsonar.verbose=true -X
   - npm run build
 
-after_success:
-  - docker build -t speech4j/web .
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push speech4j/web
-
 before_deploy:
   - cd $TRAVIS_BUILD_DIR
   - sed -i '/dist/web' .gitignore
