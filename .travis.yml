@@ -30,11 +30,6 @@ script:
   - sonar-scanner -Dsonar.verbose=true -X
   - npm run build
 
-before_deploy:
-  - cd $TRAVIS_BUILD_DIR
-  - sed -i '/dist/web' .gitignore
-  - git add . && git commit -m "latest build"
-
 deploy:
   provider: elasticbeanstalk
   region: "us-west-2"
