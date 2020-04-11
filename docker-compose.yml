@@ -17,8 +17,3 @@ services:
       - /web/node_modules
       - .:/web
     command: ["npm","run","test-headless"]
-  web-prod:
-    build: .
-    volumes:
-      - /web/node_modules
-      - .:/web
