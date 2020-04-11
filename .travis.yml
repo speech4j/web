@@ -3,8 +3,10 @@ node_js:
   - "12"
 dist: trusty
 sudo: required
-services:
-  - docker
+
+branches:
+  only:
+  - master
 
 cache:
   directories:
@@ -15,36 +17,21 @@ addons:
   sonarcloud:
     organization: "speech4j"
 
-branches:
-  only:
-    - master
-
-before_install:
-  - docker build -t speech4j/web-test -f Dockerfile.dev .
-
 before_script: 
   - npm install
 
 script:
-  - docker run -e CI=true speech4j/web-test -v "$(pwd)"/coverage:/web/coverage/web 55e79f84f759 npm run test-headless
+  - npm run test-headless
   - sonar-scanner -Dsonar.verbose=true -X
   - npm run build
 
-before_deploy:
-  - cd ./dist/web
-  - git add . && git commit -m "latest build"
-
 deploy:
-  provider: elasticbeanstalk
-  region: "us-west-2"
-  app: "web"
-  env: "web-env"
-  bucket_name: "elasticbeanstalk-us-west-2-547860292933"
-  bucket_path: "web"
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
+  provider: heroku
+  skip_cleanup: true
+  keep-history: true
+  api-key:
+    secure: $HEROKU_API_KEY
+  app: speech4jweb
 
 after_deploy:
   - echo "Application Deployed!"
