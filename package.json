@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "http-server",
+    "start": "ng serve",
     "build": "ng build --aot --prod",
     "lint": "ng lint",
     "e2e": "ng e2e",
