@@ -7,7 +7,8 @@
     "build": "ng build --aot --prod",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "test-headless": "ng test --watch=false --code-coverage"
+    "test-headless": "ng test --watch=false --code-coverage",
+    "preinstall": "npm install -g angular-cli"
   },
   "private": "true",
   "dependencies": {
@@ -23,9 +24,7 @@
     "express": "^4.17.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
-  },
-  "devDependencies": {
+    "zone.js": "~0.10.2",
     "@angular-devkit/build-angular": "~0.901.0",
     "@angular/compiler-cli": "~9.1.0",
     "@angular/language-service": "~9.1.0",
@@ -44,5 +43,11 @@
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
     "typescript": "~3.7.5"
+  },
+  "devDependencies": {
+  },
+  "engines": {
+    "node": "12.16.1",
+    "npm": "6.13.4"
   }
 }
