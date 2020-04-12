@@ -17,7 +17,7 @@ before_script:
 script:
 - npm run test-headless
 - sonar-scanner -Dsonar.verbose=true -X
-- npm run build
+- npm run build-prod
 deploy:
   provider: heroku
   skip_cleanup: true
