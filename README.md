@@ -1,5 +1,5 @@
-# Web
-[![Build Status](https://travis-ci.com/speech4j/web.svg?branch=master)](https://travis-ci.com/speech4j/web)
+# Web [![Build Status](https://travis-ci.com/speech4j/web.svg?branch=master)](https://travis-ci.com/speech4j/web)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
