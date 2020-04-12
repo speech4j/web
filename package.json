@@ -37,7 +37,7 @@
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
     "path": "^0.12.7",
-    "protractor": "~5.4.3",
+    "protractor": "~6.0.0",
     "rxjs": "~6.5.4",
     "ts-node": "~8.3.0",
     "tslib": "^1.10.0",
