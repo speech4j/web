@@ -1,4 +1,8 @@
-# Web [![Build Status](https://travis-ci.com/speech4j/web.svg?branch=master)](https://travis-ci.com/speech4j/web)
+# Web 
+
+[![Build Status](https://travis-ci.com/speech4j/web.svg?branch=master)](https://travis-ci.com/speech4j/web)
+
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=speech4j_speech-to-text-comparator-ui)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
