@@ -1,0 +1,30 @@
+language: node_js
+node_js:
+- '12'
+dist: trusty
+branches:
+  only:
+  - master
+cache:
+  directories:
+  - node_modules
+addons:
+  chrome: stable
+  sonarcloud:
+    organization: speech4j
+before_script:
+- npm install
+script:
+- npm run test-headless
+- sonar-scanner -Dsonar.verbose=true -X
+- npm run build
+deploy:
+  provider: heroku
+  skip_cleanup: true
+  keep-history: true
+  app: speech4jweb
+  api_key:
+    secure: fZLBDGUUwJS6setqj4DDwHCwfr7ybdkSTu7rhEGXLawOFYpUvLkOP/McYBITMh9bOFe59HLsF5mfKb3v7B+xP8qjsTWzdVOB7jWztoEznZgXupcGhAX2DFO0y1SBYOvsg+Tq7623rIYQoqcX6bsATD0drlv1qhS4tjblxLzTZm8L0c4SA1w5JeSzSHL8yS83O9iXeJQKBsqaOA7qNEqmDpU4YGGenAK0FBGWNFnW5uvFFJKg9B/c8F73mXw/u2pMeYU2w8Gop5SIn9I211WA23El5I4LR7rYEvd/8tuW50InpDlL2BVS32hjrZa+xQPIIKFgtR3YssLc23kc/98K0Z9QM52LPlzoZTpGBtDgSK3hYU9ZtVRSRqL2V8m5tYnZehOSkwOfvveirQk1r/DRxk7c7F5KkIQ6GpYqbUbSJT+oCn/UsIirqI1GxFF18H88AsXr2BCgejpPDHKDu291AItLGls6SJQKQsRZCCp2JgIHUqZL60XWNo0kYteNtQyeynq8UhoCBueZFxh+sbT/56EMPXBO/7/U8nvoZ/xRO+VYgmGArpz3opjAusIa6YlXns0PgaCilJHnX64VE2ykioiYBtAfOTWG0bsTViiqcH40M3h1kjRpzQDyPCcN+btNx6qHTUyhmANQHLVpinLaIrJtCBCHZ7KNJsborIlNgUo=
+
+after_deploy:
+- echo "Application Deployed!"
