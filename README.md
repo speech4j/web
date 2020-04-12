@@ -6,7 +6,10 @@
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+
 Navigate https://speech4jweb.herokuapp.com to enter development environment
+
+Navigate https://ej0kal.axshare.com/ to view current prototype of the project (authorized users only)
 
 ## Development server
 
