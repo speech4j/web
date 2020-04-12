@@ -1,24 +1,29 @@
 # Web 
 
-[![Build Status](https://travis-ci.com/speech4j/web.svg?branch=master)](https://travis-ci.com/speech4j/web)
+[![Build Status](https://travis-ci.com/speech4j/web.svg?branch=master)](https://travis-ci.com/speech4j/web) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=speech4j_speech-to-text-comparator-ui&metric=alert_status)](https://sonarcloud.io/dashboard?id=speech4j_speech-to-text-comparator-ui)
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=speech4j_speech-to-text-comparator-ui)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+Navigate https://speech4jweb.herokuapp.com to enter development environment
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
 Run `npm run start` for a new node server. Navigate to `https://localhost:3000`.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/web/` directory. Use the `--prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/web/` directory. 
+
+Use the `--prod` flag for a production build.
 
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
 Run `npm run test-headless` to execute headless tests with code coverage which will be stored in the `coverage/` directory.
 
 ## Running end-to-end tests
