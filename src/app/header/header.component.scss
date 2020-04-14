@@ -1,0 +1,32 @@
+$base-font: Verdana, Arial, Helvetica, sans-serif;
+$base-color: rgb(0, 136, 247);
+$base-color-hover: rgb(0, 111, 202);
+$base-color-active:rgb(0, 97, 177);
+
+header {
+    font-family: $base-font;
+    display: flex;
+    background-color: $base-color;
+    color: #fff;
+    h1 {
+        padding: 25px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    a {
+        font-size: 1.2em;
+        padding: 25px;
+        display: block;
+        margin-left: auto;
+        color: #fff;
+        text-decoration: none;
+        line-height: 32px;
+        &:hover {
+            background-color: $base-color-hover;
+        }
+        &:active {
+            background-color: $base-color-active;
+        }
+    }
+}
