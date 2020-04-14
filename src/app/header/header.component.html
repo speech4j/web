@@ -1,5 +1,5 @@
 <header>
     <h1>Speech4j</h1>
-    <a *ngIf="router.url === '/login'" routerLink="/signup">Sign up</a>
+    <a *ngIf="router.url === '/login' || router.url === '/'" routerLink="/signup">Sign up</a>
     <a *ngIf="router.url === '/signup'" routerLink="/login">Log in</a>
 </header>
