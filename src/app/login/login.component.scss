@@ -1,0 +1,91 @@
+@import "../app-variables.scss";
+
+.login-heading {
+    font-family: $base-font;
+    margin: 50px auto;
+    text-align: center;
+    width: 20%;
+    p {
+        margin-top: 25px;
+    }
+}
+
+.login-form {
+    font-family: $base-font;
+    position: relative;
+    margin: auto;
+    width: 20%;
+    label {
+        font-size: 0.8em;
+        color: #999;
+    }
+    #password, #username {
+        font-size: 1em;
+        display: block;
+        margin: 10px 0;
+        padding: 10px;
+        width: 100%;
+        outline: none;
+        border: 1px solid #DDDDDD;
+        &:focus {
+            box-shadow: 0 0 5px $base-color
+        }
+    }
+    #showpassword {
+        margin-top: 25px;
+        display: inline-block;
+
+    }
+    label[for="showpassword"] {
+        padding-left: 5px;
+    }
+    .forgot-login-link {
+        color: $base-color;
+        margin-top: 21px;
+        font-size: 0.8em;
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        margin-left: auto;
+        text-decoration: none;
+        &:hover {
+            color: $base-color-hover;
+        }
+        &:active {
+            color: $base-color-active;
+        }
+    }
+    .login-button {
+        font-size: 0.9em;
+        display: block;
+        width: 150px;
+        height: 40px;
+        margin: 50px auto 25px auto;
+        background-color: $base-color;
+        border-radius: 5px;
+        color: #fff;
+        outline: none;
+        &:hover {
+            cursor: pointer;
+            background-color: $base-color-hover;
+        }
+        &:active {
+            background-color: $base-color-active;
+        }
+    }
+    p {
+        text-align: center;
+        font-size: 0.8em;
+        color: #999;
+        a {
+            color: $base-color;
+            text-decoration: none;
+            &:hover {
+                color: $base-color-hover;
+            }
+            &:active {
+                color: $base-color-active;
+            }
+        };
+    }
+}

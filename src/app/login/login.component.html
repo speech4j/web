@@ -1,22 +1,24 @@
-<h2>Log in</h2>
-<p>
-    Welcome to our incredible flamboyant application it can translate cat's meow into your Java code and vice versa.
-    Also a special bug occurs while sending C# code (we call it a feature) it turns into a bunch of offensive comments
-    in your direction and results in spamming your mail with "joycazino777.com" advertisements. We gave you precautions.
-</p>
+<div class="login-heading">
+    <h2>Log in</h2>
+    <p>
+        Welcome to Speech4j. Please login to experience excellent recognition service.
+    </p>
+</div>
 
-<label for="username">Username or email</label>
-<input type="text" id="username">
+<div class="login-form">
+    <label for="username">Username</label>
+    <input type="text" id="username">
 
-<label for="password">Password</label>
-<input type="password" id="password">
+    <label for="password">Password</label>
+    <input type="password" id="password">
 
-<input type="checkbox" id="rememberme">
-<label for="rememberme">Remember Me</label>
+    <input type="checkbox" id="showpassword" (click)="showPassword()">
+    <label for="showpassword">Show password</label>
 
-<a href="">Forgot Login Details?</a>
+    <a class="forgot-login-link" href="#">Forgot Login Details?</a>
 
-<button>Login</button>
-<p>
-    Don't have an account? <a routerLink="/signup">Sign up</a>
-</p>
+    <button type="button" class="login-button">Login</button>
+    <p>
+        Don't have an account? <a routerLink="/signup">Sign up</a>
+    </p>
+</div>
