@@ -24,7 +24,7 @@ before_install:
 
 script:
   - docker run -it -e CI=true -v $(pwd)/coverage:/web/coverage speech4j/web-test npm run test-headless
-  - eval "sed -i'' -e 's|SF:/web/|SF:$(pwd)/|g' $(pwd)/coverage/lcov.info"
+  - eval "sudo sed -i'' -e 's|SF:/web/|SF:$(pwd)/|g' $(pwd)/coverage/lcov.info"
   - sonar-scanner -Dsonar.verbose=true -X
 
 after_success:
