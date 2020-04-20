@@ -1,6 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* DO NOT WRITE ANY GLOBAL STYLES IN HERE
+DUE TO KONCHENYI ANGULAR APPLICATITION IT 
+DOESN'T ADD "type=text/css" SO NGINX WON'T
+BE ABLE TO GET YOUR CSS FILES PROPERLY.
+
+INSTEAD, WRITE ALL GLOBAL STYLES DIRECTLY 
+INSIDE <style> TAG WHICH IS PLACED INSIDE
+index.html FILE. THANK YOU FOR UNDERSTANDING.
+*/
