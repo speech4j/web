@@ -81,8 +81,6 @@ Running development image:
 
 `docker run -it --name=web-prod -p 80:80 --rm web:prod`.
 
-Unit and e2e tests are executing automatically during the build phase.
-
 
 #### :closed_book: docker-compose.yml
 

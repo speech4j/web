@@ -1,23 +1,34 @@
-language: node_js
-node_js:
-- '12'
+sudo: required
+
+services:
+  - docker
+  
 dist: trusty
+
 branches:
   only:
   - master
-cache:
-  directories:
-  - node_modules
+
 addons:
   chrome: stable
   sonarcloud:
     organization: speech4j
+    
 before_script:
-- npm install
+  - npm install
+
+before_install:
+  - docker build -t speech4j/web-test -f Dockerfile.dev .
+
 script:
-- npm run test-headless
-- sonar-scanner -Dsonar.verbose=true -X
-- npm run build-prod
+  - docker run -it -e CI=true -v $(pwd)/coverage:/web/coverage speech4j/web-test npm run test-headless
+  - sonar-scanner -Dsonar.verbose=true -X
+
+after_success:
+  - docker build -t speech4j/web .
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push speech4j/web
+
 deploy:
   provider: heroku
   skip_cleanup: true
