@@ -1,3 +1,8 @@
+language: node_js
+
+node_js:
+- '12'
+
 sudo: required
 
 services:
@@ -18,7 +23,7 @@ before_install:
   - docker build -t speech4j/web-test -f Dockerfile.dev .
 
 script:
-  - docker run -it -v $(PWD)/coverage/web/:/web/coverage/web/ speech4j/web-test -e CI=true  npm run test-headless
+  - docker run -it -e CI=true -v $(PWD)/coverage/web/:/web/coverage/web/ speech4j/web-test npm run test-headless
   - sonar-scanner -Dsonar.verbose=true -X
 
 after_success:
