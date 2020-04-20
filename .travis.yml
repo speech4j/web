@@ -13,9 +13,6 @@ addons:
   chrome: stable
   sonarcloud:
     organization: speech4j
-    
-before_script:
-  - npm install
 
 before_install:
   - docker build -t speech4j/web-test -f Dockerfile.dev .
