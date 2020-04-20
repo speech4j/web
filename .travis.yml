@@ -18,10 +18,10 @@ before_install:
   - docker build -t speech4j/web-test -f Dockerfile.dev .
 
 script:
-  - docker run -v $(PWD):/web/coverage speech4j/web-test npm run test-headless
-  - sonar-scanner -Dsonar.verbose=true -X
+  - docker run -v $(PWD)/coverage/web/:/web/coverage/web/ -e CI=true speech4j/web-test npm run test-headless
 
 after_success:
+  - sonar-scanner -Dsonar.verbose=true -X
   - docker build -t speech4j/web .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push speech4j/web
