@@ -1,0 +1,126 @@
+@import "../app-variables.scss";
+
+.signup-heading {
+    font-family: $base-font;
+    margin: 120px auto 50px auto;
+    text-align: center;
+    width: 20%;
+    color: $slightly-dark;
+    p {
+        margin-top: 25px;
+    }
+}
+
+.signup-form {
+    font-family: $base-font;
+    position: relative;
+    margin: auto;
+    width: 20%;
+    .signup-form-msg {
+        position: relative;
+        padding: 10px;
+        background-color: $danger-red;
+        margin-bottom: 15px;
+        border-radius: 2px;
+        &:after {
+            bottom: 100%;
+            left: 50%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+        &:after {
+            border-bottom-color: $danger-red;
+            border-width: 8px;
+            margin-left: -8px;
+        }
+        &:before {
+            border-bottom-color: $danger-red;
+            border-width: 14px;
+            margin-left: -14px;
+        }
+    }
+    .signup-form-msg > p {
+        font-size: 0.9em;
+        text-align: left !important;
+        color: #fff;
+    }
+    label {
+        font-size: 0.8em;
+        color: $slightly-dark;
+    }
+    #password, #email, #password-confirm {
+        font-size: 1em;
+        display: block;
+        margin: 10px 0;
+        padding: 10px;
+        width: 100%;
+        outline: none;
+        border: 1px solid rgb(197, 197, 197);
+        &:focus {
+            border: 1px solid $slightly-dark;
+        }
+    }
+    .invalid {
+        border: 1px solid $danger-red !important;
+    }
+    .valid {
+        border: 1px solid $success-green !important;
+    }
+    label[for="showpassword"] {
+        padding-left: 5px;
+    }
+    .forgot-login-link {
+        color: $base-color;
+        margin-top: 21px;
+        font-size: 0.8em;
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        margin-left: auto;
+        text-decoration: none;
+        &:hover {
+            color: $base-color-hover;
+        }
+        &:active {
+            color: $base-color-active;
+        }
+    }
+    .signup-button {
+        font-size: 0.9em;
+        display: block;
+        width: 150px;
+        height: 40px;
+        margin: 50px auto 25px auto;
+        background-color: $base-color;
+        border-radius: 5px;
+        color: #fff;
+        outline: none;
+        &:hover {
+            cursor: pointer;
+            background-color: $base-color-hover;
+        }
+        &:active {
+            background-color: $base-color-active;
+        }
+    }
+    p {
+        text-align: center;
+        font-size: 0.8em;
+        color: $slightly-dark;;
+        a {
+            color: $base-color;
+            text-decoration: none;
+            cursor: pointer;
+            &:hover {
+                color: $base-color-hover;
+            }
+            &:active {
+                color: $base-color-active;
+            }
+        };
+    }
+}
