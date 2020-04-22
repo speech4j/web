@@ -18,36 +18,28 @@ export class SignupComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.createFormControls();
     this.createForm();
   }
 
-
-  createFormControls() {
-    this.email = new FormControl('',
+  createForm() {
+    this.signupForm = this.formBuilder.group({
+      email: this.email = new FormControl('',
           Validators.compose([ 
             Validators.email,
             Validators.required,
             Validators.minLength(3),
             Validators.maxLength(64)
           ])
-      );
-      this.password = new FormControl('', 
+      ),
+      password: this.password = new FormControl('', 
           Validators.compose([
             Validators.required,
             Validators.pattern('[a-zA-Z0-9]*'), 
             Validators.minLength(8), 
             Validators.maxLength(32)
           ])
-      );
-      this.confirmPassword = new FormControl('', Validators.required);
-  }
-
-  createForm() {
-    this.signupForm = this.formBuilder.group({
-      email: this.email,
-      password: this.password,
-      confirmPassword: this.confirmPassword
+      ),
+      confirmPassword: this.confirmPassword = new FormControl('', Validators.required)
     }, {
       validator: MustMatch('password', 'confirmPassword')
     });

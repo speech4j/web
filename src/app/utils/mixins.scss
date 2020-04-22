@@ -1,0 +1,25 @@
+@mixin screen-type($type) {
+
+    @if $type == phone {
+
+      @media (max-width: 599px) { @content; }
+      
+    } @else if $type == tablet-portrait {
+
+      @media (min-width: 600px) { @content; }
+
+    } @else if $type == tablet-landscape {
+
+      @media (min-width: 900px) { @content; }
+
+    } @else if $type == desktop {
+
+      @media (min-width: 1200px) { @content; }
+
+    } @else if $type == large-desktop {
+
+      @media (min-width: 1800px) { @content; }
+
+    }
+
+}
