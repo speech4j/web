@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms'; 
 import { MustMatch } from '../match.validator';
+import { Credentials } from '../models/Credentials';
 
 @Component({
   selector: 'app-signup',
@@ -9,6 +10,7 @@ import { MustMatch } from '../match.validator';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+  @Output() signupEmitter = new EventEmitter<Credentials>();
 
   signupForm: FormGroup;
   email: FormControl;
@@ -46,6 +48,10 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-    console.warn(this.signupForm.value);
+    if (this.signupForm.valid) {
+      this.signupEmitter.emit(
+        new Credentials(this.signupForm.value.email, this.signupForm.value.password)
+      );
+    }
   }
 }
