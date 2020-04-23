@@ -1,48 +1,80 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SignupComponent } from './signup.component';
+import { LoginComponent } from './login.component';
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
-import { Credentials } from '../models/Credentials';
+import { Credentials } from '../../models/Credentials';
+import { Router, ROUTES } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { routes } from '../../app-routing.module';
 
-describe('SignupComponent', () => {
-  let component: SignupComponent;
-  let fixture: ComponentFixture<SignupComponent>;
+describe('LoginComponent', () => {
+  let router: Router;
+  let component: LoginComponent;
+  let fixture: ComponentFixture<LoginComponent>;
+  let showPasswordCheckbox: HTMLInputElement;
 
   // create new instance of FormBuilder
   const formBuilder: FormBuilder = new FormBuilder();
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SignupComponent ],
+      declarations: [ 
+        LoginComponent
+      ],
       imports: [
         ReactiveFormsModule,
+        RouterTestingModule.withRoutes(routes)
       ],    
       providers: [
         { provide: FormBuilder, useValue: formBuilder }
       ]
     })
-    .compileComponents();
+    .compileComponents().then(() => {
+      fixture = TestBed.createComponent(LoginComponent);
+      component = fixture.componentInstance;
+      showPasswordCheckbox = fixture.debugElement.nativeElement.querySelector('#showpassword');
+    });
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SignupComponent);
+    fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
+    console.log("Component creation test");
     expect(component).toBeTruthy();
   });
 
+  it(`should have type equals to 'password'`, async(() => {
+    console.log("Password input initial type test");
+    let inputType = fixture.debugElement.nativeElement.querySelector('#password').type;
+    expect(inputType).toEqual('password');
+  }));
+
+  it(`should toggle type to 'text' and vice versa`, async(() => {
+    console.log("Show password toggle test");
+    showPasswordCheckbox.click();
+    let inputTypeFirst = fixture.debugElement.nativeElement.querySelector('#password').type;
+    console.log("Input type after first click is: "+inputTypeFirst);
+    expect(inputTypeFirst).toEqual('text');
+
+    showPasswordCheckbox.click();
+    let inputTypeSecond = fixture.debugElement.nativeElement.querySelector('#password').type;
+    console.log("Input type after second click is: "+inputTypeSecond);
+    expect(inputTypeSecond).toEqual('password');
+  }));
+
   it(`form should be invalid when empty`, () => {
     console.log("Form validation test");
-    expect(component.signupForm.valid).toBeFalsy();
+    expect(component.loginForm.valid).toBeFalsy();
   });
 
   it(`email validity`, () => {
     console.log("Email validation test");
     let errors = {};
-    let email = component.signupForm.controls['email'];
+    let email = component.loginForm.controls['email'];
     // invalid when empty
     expect(email.valid).toBeFalsy();
 
@@ -80,7 +112,7 @@ describe('SignupComponent', () => {
 
     console.log("email validation test");
     let errors = {};
-    let password = component.signupForm.controls['password'];
+    let password = component.loginForm.controls['password'];
     // invalid when empty
     expect(password.valid).toBeFalsy();
 
@@ -113,46 +145,16 @@ describe('SignupComponent', () => {
     expect(errors['maxlength']).toBeFalsy();
   });
 
-  it(`confirm password should match password`, () => {
-    console.log("Confirm password test");
-
-    let errors = {};
-    let password = component.signupForm.controls['password']
-    let confirmPassword = component.signupForm.controls['confirmPassword'];
-    // invalid when empty
-    expect(confirmPassword.valid).toBeFalsy();
-
-    // confirmPassword is required
-    errors = confirmPassword.errors || {};
-    expect(errors['required']).toBeTruthy();
-    expect(errors['mustMatch']).toBeFalsy();
-
-    // should be valid, contain '@'
-    password.setValue("Validpassword123");
-    confirmPassword.setValue("ValidPassword123");
-    errors = confirmPassword.errors || {};
-    expect(errors['required']).toBeFalsy();
-    expect(errors['mustMatch']).toBeTruthy();
-
-    // should be correct
-    password.setValue("GoodPassword123");
-    confirmPassword.setValue("GoodPassword123");
-    errors = password.errors || {};
-    expect(errors['required']).toBeFalsy();
-  });
-
   it(`submitting a form emits credentials`, () => {
-    expect(component.signupForm.valid).toBeFalsy();
-    component.signupForm.controls['email'].setValue("super@dog.com");
-    component.signupForm.controls['password'].setValue("GoodBoy123");
-    component.signupForm.controls['confirmPassword'].markAsTouched();
-    component.signupForm.controls['confirmPassword'].setValue("GoodBoy123");
-    expect(component.signupForm.valid).toBeTruthy();
+    expect(component.loginForm.valid).toBeFalsy();
+    component.loginForm.controls['email'].setValue("super@dog.com");
+    component.loginForm.controls['password'].setValue("GoodBoy123");
+    expect(component.loginForm.valid).toBeTruthy();
 
     let credentials: Credentials;
 
     // Subscribe to the Emitter and store the credentials in a local variable.
-    component.signupEmitter.subscribe((value) => credentials = value);
+    component.loginEmitter.subscribe((value) => credentials = value);
 
     // Trigger the onSubmit function
     component.onSubmit();

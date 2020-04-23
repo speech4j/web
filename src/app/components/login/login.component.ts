@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
-import { Credentials } from '../models/Credentials';
+import { Credentials } from '../../models/Credentials';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   email: FormControl;
   password: FormControl;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService ) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -42,11 +43,13 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    let credentials = new Credentials(this.loginForm.value.email, this.loginForm.value.password)
     if (this.loginForm.valid) {
       this.loginEmitter.emit(
-        new Credentials(this.loginForm.value.email, this.loginForm.value.password)
+        credentials
       );
     }
+    this.authService.login(credentials)
   }
 
   showPassword() {

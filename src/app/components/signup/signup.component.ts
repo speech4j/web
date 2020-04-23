@@ -1,8 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms'; 
-import { MustMatch } from '../match.validator';
-import { Credentials } from '../models/Credentials';
+import { MustMatch } from '../../match.validator';
+import { Credentials } from '../../models/Credentials';
 
 @Component({
   selector: 'app-signup',

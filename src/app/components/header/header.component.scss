@@ -1,11 +1,37 @@
-@import "../utils/variables.scss";
-@import "../utils/mixins.scss";
+@import "../../utils/variables.scss";
+@import "../../utils/mixins.scss";
 
 header {
     font-family: $base-font;
     display: flex;
     background-color: $base-color;
     color: #fff;
+
+    .profile-img {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        margin: 10px 20px 0 auto;
+        overflow: hidden;
+        border-radius: 50%;            
+        border: 3px solid transparent;
+        cursor: pointer;
+
+        &:hover {
+            border: 3px solid #fff;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            margin-left: -160px;
+        }
+    }
+
+    .active {
+        border: 3px solid #fff;
+    }
+
     h1 {
         padding: 20px;
 

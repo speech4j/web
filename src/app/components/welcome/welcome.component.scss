@@ -1,0 +1,75 @@
+@import "../../utils/mixins.scss";
+@import "../../utils/variables.scss";
+
+.welcome-heading {
+    font-family: $base-font;
+    margin: 120px auto 50px auto;
+    text-align: center;
+    width: 400px;
+    color: $slightly-dark;
+
+    @include screen-type(phone) {
+        width: 250px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-size: 0.8em;
+    }
+
+    p {
+        margin-top: 25px;
+
+        @include screen-type(phone) {
+            margin-top: 10px;
+        }
+    }
+}
+
+.button-area {
+    display: flex;
+    width: 350px;
+    margin: auto;
+
+    @include screen-type(phone) {
+        width: 250px;
+    }
+
+    .try-button {
+        font-size: 0.9em;
+        display: block;
+        width: 150px;
+        height: 50px;
+        margin: 50px auto 25px auto;
+        background-color: $base-color;
+        border-radius: 5px;
+        color: #fff;
+        outline: none;
+        text-transform: uppercase;
+    
+        &:hover {
+            cursor: pointer;
+            background-color: $base-color-hover;
+        }
+    
+        &:active {
+            background-color: $base-color-active;
+        }
+    }
+
+    .mommy-button {
+        font-size: 0.9em;
+        display: block;
+        width: 150px;
+        height: 50px;
+        margin: 50px auto 25px auto;
+        background-color: #fff;
+        border: 1px solid $base-color;
+        border-radius: 5px;
+        color: $base-color;
+        outline: none;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+}
+
+
+

@@ -1,0 +1,15 @@
+<header>
+    <h1>Speech4j</h1>
+    <a *ngIf="router.url === '/login' || router.url === '/'" routerLink="/signup">Sign up</a>
+    <a *ngIf="router.url === '/signup'" routerLink="/login">Log in</a>
+    <div 
+        *ngIf="isLoggedIn$ | async"
+        class="profile-img" 
+        (click)="selectProfile()" 
+        [ngClass]="profileClicked ? 'active' : ''">
+        <img src="../../../assets/profile.jpg" alt="profile">
+    </div>
+    <div *ngIf="profileClicked && isLoggedIn$ | async" class="user-menu" style="position: absolute; right: 10px; top: 100px; width: 100px; height: 70px; border: 1px solid #777; border-radius: 3px;">
+        <span style="color: #777; text-decoration: none; font-weight: bold; font-size: 0.8em; cursor: pointer; line-height:65px; margin-left: 25px;" (click)="logOut()">logout</span>
+    </div>
+</header>
