@@ -10,7 +10,9 @@
     "e2e": "ng e2e",
     "build-prod": "ng build --prod",
     "test-headless": "ng test --watch=false --code-coverage",
-    "preinstall": "npm install -g angular-cli"
+    "preinstall": "npm install -g angular-cli",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "private": true,
   "dependencies": {
@@ -26,7 +28,8 @@
     "express": "^4.17.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.1",
@@ -51,5 +54,6 @@
   "engines": {
     "node": "12.16.1",
     "npm": "6.13.4"
-  }
+  },
+  "snyk": true
 }
